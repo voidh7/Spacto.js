@@ -7,7 +7,7 @@ Spacto.js e um framework js feito para facilitar a manipulação do dom
 para criar um componente use
 <code>
 spacto.component('nomedoseucomponente', {
-  template: '<h1> exemplo de componente</h1>',
+  template: '<p>exemplo de componente </p>',
   data() {
     return { name: 'Mundo' };
   }
