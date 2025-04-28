@@ -1,0 +1,133 @@
+#spacto.js 
+versão 1.0
+distro:main
+
+## estrutura do projeto
+
+./mysite
+ ./src
+   index.js
+   confi.js
+   ////////
+   index.html
+   
+   vc também pode clonar o repositorio de templente 
+   <a href=""> link dele </a>
+   
+ 
+
+
+ ## arquivo de configuração
+ esse arquivo e responsável por configurar o site
+ 
+ configure asim
+ 
+ <code>
+ const siteconfi = {
+  title: "nome-do-seu-site",
+};
+ </code>
+
+ coloquei esse código em um arquivo chamado confi.js e inclua ele antes do index.js
+ 
+
+ ## componentes
+ para criar um componente no spacto use
+ 
+ <code>
+ spacto.component('mycomponente', {
+  template: 'html do seu componente',
+  data() {
+    return { name: 'Mundo' };
+  }
+});
+
+</code>
+
+agora no html
+<mycomponente> </mycomponente>
+
+## função click
+para add um evento de click em algum objeto
+use
+
+<code>
+click(id,funcao)
+</code>
+
+ exemplo
+ <br>
+
+ <code>
+ Function oi(){
+ alert("oi")
+ }
+ click("oibnt",oi)
+ </code>
+ 
+ <br>
+ 
+ ## playsong
+ essa função permite dar play em áudios de forma simples e fácil
+ 
+ como usar?
+ <code>
+ playsong("caminho-do-audio")
+ </code>
+ 
+ ## getId e getclass
+ 
+ o getid serve para pegar um elemento html por seu id
+ exemplo
+ <br>
+ <code>
+ conte title = spacto.getid("h1")
+ </code>
+ <br>
+agora o getclass e a msm coisa só que para classes
+
+## spacto.css()
+
+o spacto.css e a função para alterar probiedades css de um elemento
+
+como usar?
+<code>
+spacto.css(id,csscode)
+
+</code>
+exemplo 
+<code>
+spacto.css("myh1","color:red") 
+</code>
+
+
+## elview
+
+essa função permite mudar a visibilidade de um elemento de forma fácil
+
+como usar?
+<code>
+elview(id,estado")
+</code>
+estados do elview
+e bem simples
+ o estado (es) 1 significa que o elemento sera visível
+ o estado(es) 0 significa que não
+ 
+ ### exemplo
+ <br>
+ <code>
+ 
+ spacto.component('mybutton', {
+  template: '<button id="btn" class="btn_basic"  id="oi"> clica em mim :3 </button>',
+  data() {
+    return { name: 'Mundo' };
+  }
+});
+ 
+ function exe(){
+elview(btn,0)
+ }
+ click(btn,exe)
+ </code>
+ 
