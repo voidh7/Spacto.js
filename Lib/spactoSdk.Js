@@ -67,9 +67,13 @@ const spacto = {
     this.compile(root);
   },
   
- css(id,s){
-   document.getElementById(id).style = s
- },
+ css(id, styleString, overwrite = true) {
+    if (!overwrite) {
+        document.getElementById(id).style += styleString;  // Append the styles
+    } else {
+        document.getElementById(id).style = styleString;  // Replace the styles
+    }
+}
  
  getId(id){
    return document.getElementById(id)
