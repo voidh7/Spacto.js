@@ -1,133 +1,97 @@
-#spacto.js 
-versão 1.0
-distro:main
+# Spacto.js 
+- Version 1.0
+- Distro : main
 
-## estrutura do projeto
+## Project Structure
 
-./mysite
- ./src
+```txt
+./myWebsite
+  Lib/
+   spactoSDK.js
+
+  src/
    index.js
    confi.js
-   ////////
-   index.html
-   
-   vc também pode clonar o repositorio de templente 
-   <a href=""> link dele </a>
-   
- 
 
+  index.html
 
- ## arquivo de configuração
- esse arquivo e responsável por configurar o site
- 
- configure asim
- 
- <code>
- const siteconfi = {
-  title: "nome-do-seu-site",
+```
+
+ ## Configuration file (confi.js)
+This file is used to configure your project like the title and you can use it like this :
+
+```js
+const siteconfi = {
+    title: "website title",
 };
- </code>
+```
 
- coloquei esse código em um arquivo chamado confi.js e inclua ele antes do index.js
- 
+## Components
 
- ## componentes
- para criar um componente no spacto use
- 
- <code>
- spacto.component('mycomponente', {
-  template: 'html do seu componente',
-  data() {
-    return { name: 'Mundo' };
-  }
+Components are template codes that you can create to use the same html code so many times, you can define the html code template and use in your index html file.
+
+##### Example :
+```js
+spacto.component("custom-tag", {  // Custom tag/component
+    data() {  // Variables
+        return {
+            title: "Cool title",
+            message: "Cool message"
+        };
+    },  // The html code that the custom tag will generate on your code
+    template: `
+      <div>
+        <h2>{{title}}</h2>
+        <p>{{message}}</p>
+      </div>
+    `
 });
+```
 
-</code>
+and you can use in your html code :
 
-agora no html
-<mycomponente> </mycomponente>
+```html
+<custom-tag></custom-tag>
+```
 
-## função click
-para add um evento de click em algum objeto
-use
+## Click
 
-<code>
-click(id,funcao)
-</code>
-
- exemplo
- <br>
-
- <code>
- Function oi(){
- alert("oi")
- }
- click("oibnt",oi)
- </code>
+Click functions are used to add click events in objects and a function whem they are clicked in a easy way and you can use it using the code :
+```js
+click("#myElement", ()=>{
+    log("Clicked");
+});
+```
  
- <br>
+## Play song function
+
+This function is used to play a audio in your document in a easy way without a lot of commands or variables, and you can use it with a simple command :
  
- ## playsong
- essa função permite dar play em áudios de forma simples e fácil
+```js
+playsong("./src/audio.mp3");
+```
  
- como usar?
- <code>
- playsong("caminho-do-audio")
- </code>
- 
- ## getId e getclass
- 
- o getid serve para pegar um elemento html por seu id
- exemplo
- <br>
- <code>
- conte title = spacto.getid("h1")
- </code>
- <br>
-agora o getclass e a msm coisa só que para classes
+## Get id & Get class
+
+Get id and Get class is used to get elements with simple codes and store in a variable or return the entire element, you can get it by classname or id.<br>
+Here a example :
+```js
+let tile = spacto.getId("myTitle");
+let buttons = spacto.getclass("buttonClass");
+```
 
 ## spacto.css()
 
-o spacto.css e a função para alterar probiedades css de um elemento
+Spacto css is used to define a element selected by id css and remove the last css code from the entire element, here a example code :
 
-como usar?
-<code>
-spacto.css(id,csscode)
-
-</code>
-exemplo 
-<code>
-spacto.css("myh1","color:red") 
-</code>
-
-
-## elview
-
-essa função permite mudar a visibilidade de um elemento de forma fácil
-
-como usar?
-<code>
-elview(id,estado")
-</code>
-estados do elview
-e bem simples
- o estado (es) 1 significa que o elemento sera visível
- o estado(es) 0 significa que não
+```js
+spacto.css("myElement", "color: red; background: black;");
+```
  
- ### exemplo
- <br>
- <code>
- 
- spacto.component('mybutton', {
-  template: '<button id="btn" class="btn_basic"  id="oi"> clica em mim :3 </button>',
-  data() {
-    return { name: 'Mundo' };
-  }
-});
- 
- function exe(){
-elview(btn,0)
- }
- click(btn,exe)
- </code>
- 
+## Elviw
+
+Elviw is used to toggle a element display with but without remove it from the parent node, here a simple example of use :
+```js
+elviw("myElement", 1); // Visible
+elviw("myElement", 0); // Invisible
+```
